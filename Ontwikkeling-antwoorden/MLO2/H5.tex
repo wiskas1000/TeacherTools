@@ -1,0 +1,196 @@
+\section{Vermenigvuldigen met machten}
+\begin{antwoord}{2a}
+Stap 0: $f(x) = x^2 + 5x - 14$, dus $a = 1$, $b = 5$ en $c = -14$.
+
+\medskip
+Stap 2:
+\begin{align*}
+\xtop &= \frac{-b}{2a} = \frac{-5}{2 \cdot 1} = -2,5 \\
+\ytop &= \alert{(-2,5)}^2 + 5 \cdot \alert{(-2,5)} - 14\\ 
+&= 6,25 + - 12,5- 14\\
+&= -20,25\\
+Top &: (-2,5; -20,25)
+\end{align*}
+
+\medskip
+Stap 1: Snijpunten $x-as$:
+\begin{align*}
+x_1 &= \frac{-b + \sqrt{b^2 - 4ac}}{2a} \\
+&= \frac{-5 + \sqrt{5^2 - 4\cdot 1 \cdot -14}}{2 \cdot 1} \\
+&= \frac{-5 + \sqrt{25 - 4 \cdot -14}}{2} \\
+&= \frac{-5 + \sqrt{25 + 56}}{2} \\
+&= \frac{-5 + \sqrt{81}}{2} = 2\\
+y_1 &= 0 \qquad \text{(snijpunt met $x$-as)} \\
+S_1 &= (2,0)
+\end{align*}
+\begin{align*}
+x_2 &= \frac{-b - \sqrt{b^2 - 4ac}}{2a} \\
+&= \frac{-5 - \sqrt{5^2 - 4\cdot 1 \cdot -14}}{2 \cdot 1} \\
+&= \frac{-5 - \sqrt{81}}{2} = - 7\\
+y_2 &= 0 \qquad \text{(snijpunt met $x$-as)} \\
+S_2 &= (-7,0)
+\end{align*}
+
+\medskip
+Stap 3: Snijpunt $y$-as is op $(0, c)$, dus snijpunt $(0, -14)$.\\
+
+\medskip
+Stap 4: Spiegelen: top is in het rood (symmetrie-as)
+\begin{wiskundetabel}{5}{x}{y}{-7 & \phantom{-33}  & \alert{-2,5} & 0 & 2}{ 0 & & \alert{-20,25} & -14 & 0}
+\end{wiskundetabel}
+
+We weten $(0, -14)$. Spiegelen langs de symmetrie-as geeft:
+\begin{wiskundetabel}{5}{x}{y}{-7 & \alertb{-5}  & \alert{-2,5} & 0 & 2}{ 0 & \alertb{-14} & \alert{-20,25} & -14 & 0}
+\end{wiskundetabel}
+
+Stap 5: Random punten invullen als je nog geen 5 punten hebt. Hier is dit niet nodig. 
+
+We krijgen:\\
+\begin{tikzpicture}[scale=0.5]
+\tkzInit[xmin=-10, xmax=5,ymax=5,ymin=-25]
+\tkzGrid
+    \tkzLabelX[orig=true,label options={font=\scriptsize}]
+    \tkzLabelY[orig=false,label options={font=\scriptsize}]
+    \tkzDrawX
+    \tkzDrawY
+    \tkzDefPoint(-7,0){A}
+    \tkzDefPoint(-5,-14){B}
+    \tkzDefPoint(-2.5,-20.25){C}
+    \tkzDefPoint(0,-14){D}
+    \tkzDefPoint(2,0){E}
+    \tkzDrawPoints(A, B, C, D, E)
+    \draw[scale=1, domain=-7.5:2.5,smooth,variable=\x,blue, line width = 1pt] plot ({\x},{\x*\x+5*\x-14});
+\end{tikzpicture}
+\end{antwoord}
+
+
+
+
+
+\begin{antwoord}{3b}
+Stap 0: $h(a) = a^2 + 7a + 12$, dus $a = 1$, $b = 7$ en $c = 12$.
+
+\medskip
+Stap 2:
+\begin{align*}
+\xtop &= \frac{- 7}{2 \cdot 1} = \frac{-7}{2} = -3,5 \\
+\ytop &= \alert{(-3,5)}^2 + 7 \cdot \alert{(-3,5)} + 12\\ 
+&= 12,25 + - 24,5 + 12\\
+&= -0,25\\
+Top &: (-3,5; -0,25)
+\end{align*}
+
+\medskip
+Stap 1: Snijpunten $x-as$:
+\begin{align*}
+x_1 &= \frac{-b + \sqrt{b^2 - 4ac}}{2a} \\
+&= \frac{-7 + \sqrt{7^2 - 4\cdot 1 \cdot 12}}{2 \cdot 1} \\
+&= -3\\
+y_1 &= 0 \qquad \text{(snijpunt met $x$-as)} \\
+S_1 &= (-3,0)
+\end{align*}
+\begin{align*}
+x_2 &= \frac{-b - \sqrt{b^2 - 4ac}}{2a} \\
+&= \frac{-7 - \sqrt{7^2 - 4\cdot 1 \cdot 12}}{2 \cdot 1} \\
+&= -4\\
+y_2 &= 0 \qquad \text{(snijpunt met $x$-as)} \\
+S_2 &= (-4,0)
+\end{align*}
+
+\medskip
+Stap 3: Snijpunt $y$-as is op $(0, c)$, dus snijpunt $(0, 12)$.\\
+
+\medskip
+Stap 4: Spiegelen: top is in het rood (symmetrie-as)
+\begin{wiskundetabel}{5}{x}{y}{\phantom{eee} & -4 & \alert{-3,5}  &  -3 & 0}{ & 0 & \alert{-0,25} & 0 & 12}
+\end{wiskundetabel}
+
+We weten $(0, 12)$. Spiegelen langs de symmetrie-as geeft:
+\begin{wiskundetabel}{5}{x}{y}{\phantom{eee} & -4 & \alert{-3,5}  &  -3 & 0}{ & 0 & \alert{-0,25} & 0 & 12}
+\end{wiskundetabel}
+
+
+Stap 5: Random punten invullen als je nog geen 5 punten hebt. Hier is dit niet nodig. 
+
+We krijgen:\\
+\begin{tikzpicture}[scale=0.5]
+\tkzInit[xmin=-10, xmax=5,ymax=5,ymin=-25]
+\tkzGrid
+    \tkzLabelX[orig=true,label options={font=\scriptsize}]
+    \tkzLabelY[orig=false,label options={font=\scriptsize}]
+    \tkzDrawX
+    \tkzDrawY
+    \tkzDefPoint(-7,0){A}
+    \tkzDefPoint(-5,-14){B}
+    \tkzDefPoint(-2.5,-20.25){C}
+    \tkzDefPoint(0,-14){D}
+    \tkzDefPoint(2,0){E}
+    \tkzDrawPoints(A, B, C, D, E)
+    \draw[scale=1, domain=-7.5:2.5,smooth,variable=\x,blue, line width = 1pt] plot ({\x},{\x*\x+7*\x+12});
+\end{tikzpicture}
+\end{antwoord}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\begin{antwoord}{3}
+\begin{enumerate}
+\item $g(x) = x^2 - 2x +3$, dus $a = 1$, $b = -2$ en $c = 3$.
+
+\medskip
+$\xtop = \frac{-b}{2a} = \frac{2}{2 * 1} = 1 $
+\begin{align*}
+\ytop &= \alert{1}^2 - 2 \cdot \alert{1} + 3\\ 
+&= 1 - 2 +3\\
+&= 2\\
+T &= (1, 2)
+\end{align*}
+% 
+% \medskip
+% Snijpunten $x-as$:
+% \begin{align*}
+% x_1 &= \frac{-b + \sqrt{b^2 - 4ac}}{2a} \\
+% &= \frac{-5 + \sqrt{5^2 - 4\cdot 1 \cdot -14}}{2 \cdot 1} \\
+% &= \frac{-5 + \sqrt{25 - 4 \cdot -14}}{2} \\
+% &= \frac{-5 + \sqrt{25 + 56}}{2} \\
+% &= \frac{-5 + \sqrt{81}}{2} = 2\\
+% y_1 &= 0 \qquad \text{(snijpunt met $x$-as)} \\
+% S_1 &= (2,0)
+% \end{align*}
+% \begin{align*}
+% x_2 &= \frac{-b - \sqrt{b^2 - 4ac}}{2a} \\
+% &= \frac{-5 - \sqrt{5^2 - 4\cdot 1 \cdot -14}}{2 \cdot 1} \\
+% &= \frac{-5 - \sqrt{81}}{2} = - 7\\
+% y_2 &= 0 \qquad \text{(snijpunt met $x$-as)} \\
+% S_2 &= (-7,0)
+% \end{align*}
+% 
+% \item $5^5$
+% \item $27^{15}$
+% \item $4^{12}$
+\end{enumerate}
+\end{antwoord}

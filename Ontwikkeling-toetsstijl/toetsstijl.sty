@@ -1,0 +1,325 @@
+\NeedsTeXFormat{LaTeX2e}[2011/06/27]
+\ProvidesPackage{toetsstijl}[2018/04/16 Package for stijl dictaat TCR]
+
+% % % Voorpagina parameters % % %
+\newcommand*{\vak}[1]{\gdef\@vak{#1}}
+\newcommand*{\@vak}{}
+\newcommand*{\toetssoort}[1]{\gdef\@toetssoort{#1}}
+\newcommand*{\@toetssoort}{}
+
+\newcommand*{\niveau}[1]{\gdef\@niveau{#1}}
+\newcommand*{\@niveau}{}
+\newcommand*{\periode}[1]{\gdef\@periode{#1}}
+\newcommand*{\@periode}{}
+
+% Onderwerp voorbeeld: Boek?: hoofdstukken
+\newcommand*{\hoofdstuk}[1]{\gdef\@hoofdstuk{#1}}
+\newcommand*{\@hoofdstuk}{}
+
+\newcommand*{\onderwerp}[1]{\gdef\@onderwerp{#1}}
+\newcommand*{\@onderwerp}{}
+
+\newcommand*{\docent}[1]{\gdef\@docent{#1}}
+\newcommand*{\@docent}{}
+
+\author{Techniek College Rotterdam}
+\title{\@toetssoort\ \@vak\ \@niveau\ P\@periode\ \@hoofdstuk}
+
+% % % Cosmetics part 1: page setup, font and headers % % %
+\RequirePackage[a4paper]{geometry}
+\newgeometry{margin=2cm}
+% \newgeometry{showframe, margin=2cm}
+% 
+% \usepackage{setspace}
+% \onehalfspacing
+
+% \RequirePackage[20pt]{extsizes}
+
+\RequirePackage{multicol}
+
+\RequirePackage{parskip}
+
+% Hyphenation
+\RequirePackage[dutch]{babel}
+% \RequirePackage{polyglossia}
+% \setdefaultlanguage{dutch}
+
+
+% % % Options for fonts: arev, cmbright
+% \RequirePackage{cmbright}
+\RequirePackage{arev}
+\usepackage[T1]{fontenc}
+\RequirePackage{icomma}
+
+
+\RequirePackage{booktabs}
+\RequirePackage{tkz-euclide}
+
+
+\newenvironment{antwoord}[1]{\subsection{Antwoord opgave #1} }{}
+\usepackage{enumitem}
+\setlist[enumerate]{label=\alph*),itemsep=3pt,topsep=3pt}
+%\newcommand{eenheid}[1]{\ensuremath{#1}}
+
+\newenvironment{theorie}{\begin{mybox}[colbacktitle=green]{Theorie}}{\end{mybox}}
+\newenvironment{samenvatting}{\begin{mybox}[colbacktitle=red]{Samenvatting}}{\end{mybox}}
+\newenvironment{opgave}{\begin{mybox}[colbacktitle=blue]{Opgave}}{\end{mybox}}
+
+
+%\newenvironment{context}{\begin{mybox}[breakable, colbacktitle=gray]{Praktijkvoorbeeld}\footnotesize\itshape}{\end{mybox}}
+\newenvironment{context}{\begin{mybox}[colbacktitle=gray]{Praktijkvoorbeeld}\footnotesize\itshape}{\end{mybox}}
+%\newenvironment{context}{\begin{quote}	\footnotesize \itshape Voorbeeld: }{\end{quote}}
+
+% \newcommand{\begrip}[1]{\marginpar{#1}}
+% \newcommand{\mlo}{Wiskunde voor het MLO}
+
+
+% \RequirePackage{fancyhdr}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+% \fancyhead{}
+% \fancyfoot{}
+% % \fancyfoot[L]{\color{gray} Commit \texttt{\gitFirstTagDescribe} at \texttt{\gitAuthorIsoDate} on branch \texttt{\gitBranch}}
+% \fancyfoot[R]{\thepage}
+% \let\ps@plain\ps@fancy 
+
+
+% Graphics and cosmetics
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\definecolor{darkred}{rgb}{0.6,0.2,0.2}
+
+% % Cosmetics part 2 % %
+\RequirePackage{float}
+\RequirePackage[format=hang, labelfont={footnotesize, it}, textfont={footnotesize}, width=.9\textwidth]{caption}
+
+\RequirePackage{booktabs} % Tables with thicker rules
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{most}
+\newtcolorbox{mybox}[2][]{enhanced,
+	before skip=2mm,after skip=2mm, fonttitle=\bfseries,title={#2},#1}
+
+\tcbset{mystyle/.style={
+  breakable,
+  enhanced,
+  rightrule=0pt,
+  toprule=0pt,
+  outer arc=0pt,
+  arc=0pt,
+  colframe=myblue,
+  colback=white,
+  attach boxed title to top left,
+  boxed title style={
+    colback=myblue,
+    outer arc=0pt,
+    arc=0pt,
+    top=3pt,
+    bottom=3pt,
+    },
+  fonttitle=\sffamily
+  }
+}
+	
+\newtcolorbox[auto counter,number within=section]{meubox}[2][]{
+  mystyle,
+  title=Example~\thetcbcounter,
+%   overlay unbroken and first={
+%       \path
+%         let
+%         \p1=(title.north east),
+%         \p2=(frame.north east)
+%         in
+%         node[anchor=west,font=\sffamily,color=myblue,text width=\x2-\x1]
+%         at (title.east) {#1};
+%   }
+}
+
+%\RequirePackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%\newcommand{\ttodo}[1]{\todo[color=red!40]{Todo: #1}}
+%\newcommand{\question}[1]{\todo[color=purple!40]{Question: #1}}
+%\newcommand{\comment}[1]{\todo[color=green!40]{Comment: #1}}
+
+% Mathematics styles and symbols
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+
+% USER DEFINED MACROS
+% \usepackage{mymacros}
+
+% SCIENTIFIC NOTATION
+\RequirePackage{chemformula}
+\RequirePackage{siunitx}
+\sisetup{output-decimal-marker = {,}, output-product =\cdot,exponent-product=\cdot,retain-zero-exponent = true}
+% , per-mode = fraction
+
+
+% EXAM OPTIONS
+\renewcommand{\solutiontitle}{\noindent\textbf{Oplossing:}\enspace}
+
+% % % Puntenweergave % % %
+\pointpoints{punt}{punten}
+\bonuspointpoints{(bonus)punt}{(bonus)punten}
+\bracketedpoints
+
+% % BRENDA STYLE
+% \pointsinrightmargin
+% \pointpoints{pnt}{pnt}
+% \marginpointname{ \points}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{\@toetssoort\ \@vak}
+{\@niveau\ P\@periode\ \@hoofdstuk}
+{\@date}
+\setlength{\gridsize}{10mm}
+\setlength{\gridlinewidth}{1pt}
+\cfoot{\footnotesize Pagina \thepage\ / \numpages}
+% \firstpageheader{\@toetssoort\ \@vak}{\@niveau\ P\@periode\ \@hoofdstuk}{\@date}
+
+
+% % % Puntenoverzicht
+\addpoints
+
+\vqword{Vraag}
+\vpgword{Pagina}
+\vpword{Totaal aantal punten}
+\vsword{Score}
+\vtword{\textbf{Totaal}}
+
+\hqword{\textit{Vraag}}
+\hpgword{Pagina}
+\hpword{\textit{Totaal aantal punten}}
+\hsword{Score}
+\htword{\textbf{Totaal hele toets}}
+\gradetablestretch{2}
+
+% \newcommand{\puntenoverzicht}{\subsection*{Aantal punten per vraag}\begin{center}\pointtable[h]\end{center}}
+\newcommand{\puntenoverzicht}{\subsection*{Aantal punten per vraag}    
+% \vspace{0.5cm}
+    \begin{small}
+        Deze toets bestaat uit \numquestions\ vragen, verdeeld over \numpages\ pagina's. 
+        In totaal kun je \numpoints\ punten verdienen. 
+        \begin{center}
+            \pointtable[h]
+        \end{center}
+        Vermoedelijke rekenformule:
+        \[
+        \text{Cijfer} = \frac{\text{Aantal behaalde punten}}{\numpoints} \cdot 9 + 1
+        \]
+    \end{small}
+}
+
+% Te gebruiken met 
+% \droptotalpoints
+\totalformat{Totaal voor vraag~\thequestion: \totalpoints~punten}
+
+\newlist{beoordelingsmodel}{itemize}{1}
+\setlist[beoordelingsmodel]{label=\textbullet}
+\newenvironment{antwoordmodel}{\paragraph{Antwoordmodel}\begin{beoordelingsmodel}}{\end{beoordelingsmodel}}
+\newcommand{\beoordeling}[2]{\item #2 \hfill #1}
+
+
+% % TITLE
+\renewcommand*{\maketitle}{%
+\vspace*{-1.7cm}
+    \begin{minipage}{0.2\textwidth}
+        \includegraphics[width=\textwidth]{logo-TCR}
+    \end{minipage}
+    \hspace{0.02\textwidth}
+    \begin{minipage}{0.6\textwidth}
+    \Large
+    \@vak\ Periode \@periode\ -- \@toetssoort\\
+    \normalsize
+     \@hoofdstuk: \@onderwerp\\
+     \@niveau
+    \end{minipage}
+     \hspace{0.036\textwidth} 
+    \begin{minipage}{0.1\textwidth}
+%     \Large
+        Cijfer \\
+%         \fbox{\phantom{10,0}}\\
+        \fbox{\normalsize\parbox{\textwidth}{\phantom{10,0}\\ \phantom{3} \\ \phantom{3}}}
+%         \framebox[0.8\width][r]
+    \end{minipage}
+    
+%     \vspace*{0.5cm}
+    %     \hspace{0.05\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+    \large
+    Voornaam: \dotfill\\
+    Klas: \dotfill \\
+    Docent: \hfill \@docent
+    \end{minipage}%
+    \hspace{0.05\textwidth} 
+    \begin{minipage}{0.5\textwidth}
+    \large
+    Achternaam: \dotfill\\
+    Studentnummer: \dotfill\\
+    Datum: \dotfill
+    \end{minipage}%
+    \vspace{0.5cm}
+}
+
+% % % Oude titelpagina
+% \renewcommand*{\maketitle}{%
+%     \begin{minipage}[c]{0.2\textwidth}
+%     \includegraphics[width=\textwidth]{logo-TCR}
+%     \end{minipage}%
+%     \hspace{0.05\textwidth} 
+%     \begin{minipage}[c]{0.3\textwidth}
+%     \large
+%     Voornaam: \dotfill\\
+%     Klas: \dotfill \\
+%     Docent: \@docent
+%     \end{minipage}%
+%     \hspace{0.05\textwidth} 
+%     \begin{minipage}[c]{0.5\textwidth}
+%     \large
+%     Achternaam: \dotfill\hspace{2cm} \\
+%     Datum: \dotfill\hspace{2cm} \\
+%     Toetsnaam: \dotfill\hspace{2cm}
+%     \end{minipage}%
+%     \vspace{1cm}
+% }
+
+\newcommand{\toetseinde}{
+\vfill
+% \hrule
+\begin{center}
+    \bfseries --- Einde toets ---
+\end{center}
+\vfill
+\puntenoverzicht
+}
+
+\newcommand{\alert}[1]{\color{red} #1}
+\colorgrids
+\definecolor{GridColor}{gray}{0.8}
+% \definecolor{GridColor}{rgb}{0.75, 0.75, 0.75}
+% 
+\endinput
+% \documentclass[cancelspace,12pt,a4paper]{exam} % PRINTEN ZONDER WITRUIMTE
+
+
+% TODO
+% \begin{itemize}
+%  \item Titelpagina met de juiste veldjes
+%  \item Margin settings in geometry
+%  \item Font size van de tekst
+%  \item Raggedright setting of andere font
+%  \item Wiskundefont setting
+% \end{itemize}
+% 
+
+% Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.
+
+% Waarom gebruiken we het?
+
+% 
+
+% Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat, in tegenstelling tot "Hier uw tekst, hier uw tekst" wat het tot min of meer leesbaar nederlands maakt. Veel desktop publishing pakketten en web pagina editors gebruiken tegenwoordig Lorem Ipsum als hun standaard model tekst, en een zoekopdracht naar "lorem ipsum" ontsluit veel websites die nog in aanbouw zijn. Verscheidene versies hebben zich ontwikkeld in de loop van de jaren, soms per ongeluk soms expres (ingevoegde humor en dergelijke).
