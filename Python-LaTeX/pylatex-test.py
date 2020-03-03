@@ -33,5 +33,5 @@ if __name__ == '__main__':
     with doc.create(Section('A second section')):
         doc.append('Some text.')
 
-    doc.generate_pdf('basic_inheritance', clean_tex=False)
+    doc.generate_pdf('test-exercises', clean_tex=False)
     tex = doc.dumps()  # The document as string in LaTeX syntax
