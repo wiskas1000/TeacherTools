@@ -1,0 +1,35 @@
+\NeedsTeXFormat{LaTeX2e}[2011/06/27]
+\ProvidesPackage{../macros/tcr-macros}[2020/02/11 Package with macros for Techniek College Rotterdam]
+
+% % MATHEMATICS 
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{tkz-euclide}
+
+% % SCIENTIFIC NOTATION
+\usepackage[version=4]{mhchem}
+% \usepackage{chemformula}
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,}, output-product =\cdot,exponent-product=\cdot,retain-zero-exponent = true}% % , per-mode = fraction
+
+% % General abbreviations
+\newcommand{\mlo}{Wiskunde voor het MLO}
+\newcommand{\ks}{K\&S}
+
+% % Dutch mathematics
+\newcommand{\xx}[1]{\ensuremath{x_{#1}}}
+\newcommand{\xeen}{\ensuremath{\xx{1}}}
+\newcommand{\xtwee}{\ensuremath{\xx{2}}}
+\newcommand{\xtop}{\ensuremath{\xx{top}}}
+\newcommand{\ytop}{\ensuremath{y_{top}}}
+
+
+\newcommand{\logx}[2]{\ensuremath{\mathop{{}^{#1}\mathrm{log}(#2)}}}
+\newcommand{\logxfrac}[2]{\ensuremath{\frac{\log #2}{\log #1}}}
+
+\newenvironment{wiskundetabel}[5]{\[
+\begin{array}{c|*{#1}{|c}} #2 & #4 \\ \midrule #3 & #5 }{\end{array}
+\] }
+
+\endinput
